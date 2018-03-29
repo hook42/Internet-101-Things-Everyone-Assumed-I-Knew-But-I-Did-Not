@@ -1,0 +1,503 @@
+/**
+ * Hook42 - based on Sky theme for reveal.js.
+ *
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+
+// Include theme-specific fonts
+@import url(https://fonts.googleapis.com/css?family=Quicksand:400,500,700,400italic,500italic,700italic);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700);
+
+// Hook42 fonts
+$lightblue: #6880b0;
+$darkblue: #303e5b;
+$orange: #d86543;
+
+// Override theme settings (see ../template/settings.scss)
+$mainFont: 'Open Sans', sans-serif;
+$mainColor: $darkblue;
+$headingFont: 'Quicksand', sans-serif;
+$headingColor: $lightblue;
+$headingLetterSpacing: -0.08em;
+$headingTextShadow: darken( $orange, 20% );
+$backgroundColor: #fefefe;
+$linkColor: $lightblue;
+$linkColorHover: lighten( $linkColor, 20% );
+$selectionBackgroundColor: lighten( $lightblue, 20%);
+
+$heading1Size: 2.25em;
+$heading2Size: 1.75em;
+$heading3Size: 1.25em;
+$heading4Size: 1.00em;
+
+// Fix links so they are not cut off
+.reveal a {
+	line-height: 1.3em;
+}
+
+// Background generator
+@mixin bodyBackground() {
+	@include radial-gradient( #ddd, #fff );
+}
+
+
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+// Change selectors after template.
+.reveal a {
+	color: $orange;
+	&:hover {
+		color: darken( $orange, 20% );
+	}
+}
+
+.reveal section img {
+	border: none;
+	box-shadow: none;
+}
+
+.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+	letter-spacing: -0.05em;
+}
+
+.reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+	text-transform: none;
+}
+
+.reveal ul.ul__centered {
+	padding: 0 20%;
+}
+
+.reveal {
+	.text__dark {
+		color: $darkblue;
+	}
+	.text__light {
+		color: $lightblue;
+	}
+	.text__small {
+		font-size: 80%;
+	}
+	.text__large {
+		font-size: 120%;
+	}
+	.text__bold {
+		font-weight: 500;
+	}
+}
+
+/** Lindsay Styling **/
+$red: #cc3300;
+$orange: #ff6666;
+$yellow: #F1C40F;
+$green: #138D75;
+$lightblue: #5DADE2;
+$darkblue: #1F7EE9;
+$purple: #6179F4;
+
+.reveal {
+	.slide-number {
+		position: fixed;
+		display: block;
+		right: 8px;
+		bottom: 8px;
+		z-index: 31;
+		font-family: Helvetica, sans-serif;
+		font-size: 12px;
+		line-height: 1;
+		color: #FFF;
+		background-color: #6880B0;
+		border-radius: 20px;
+		padding: 7px;
+		min-width: 12px;
+	}
+	.smaller-font {
+		font-size: 30px;
+	}
+
+	.font-25 {
+		font-size: 25px;
+	}
+	.font-20 {
+		font-size: 20px;
+	}
+	.font-16 {
+		font-size: 16px;
+	}
+	.font-15 {
+		font-size: 15px;
+	}
+	.font-14 {
+		font-size: 14px;
+	}
+	.font-10 {
+		font-size: 10px;
+	}
+
+	//TCP model
+	.tcp-model, {
+		width: 600px;
+		display: inline-block;
+		float: left;
+		.tcp-app {
+			border: 3px solid $red;
+			padding: 20px;
+		}
+		.tcp-transport {
+			border: 3px solid $orange;
+			padding: 20px;
+		}
+		.tcp-internet {
+			border: 3px solid $yellow;
+			padding: 20px;
+		}
+		.tcp-net {
+			border: 3px solid $green;
+			padding: 20px;
+		}
+	}
+	.tcp-model-breakdown {
+		float: initial;
+	}
+	.arrow-box {
+		position: relative;
+		background: black;
+		border: 4px solid black;
+		width: 20px;
+		float: left;
+		height: 275px;
+		margin-left: 75px;
+		margin-top: 35px;
+		&:before {
+			top: 100%;
+			left: 50%;
+			border: solid transparent;
+			content: " ";
+			height: 0;
+			width: 0;
+			position: absolute;
+			pointer-events: none;
+			border-color: rgba(194, 225, 245, 0);
+			border-top-color: black;
+			border-width: 36px;
+			margin-left: -36px;
+		}
+	}
+	.arrow-box-up {
+		position: relative;
+		background: black;
+		border: 4px solid black;
+		width: 20px;
+		float: left;
+		height: 275px;
+		margin-left: 75px;
+		margin-top: 75px;
+		&:before {
+			top: -75px;
+			left: 50%;
+			border: solid transparent;
+			content: " ";
+			height: 0;
+			width: 0;
+			position: absolute;
+			pointer-events: none;
+			border-color: rgba(194, 225, 245, 0);
+			border-bottom-color: black;
+			border-width: 36px;
+			margin-left: -36px;
+		}
+	}
+	.tcp-info{
+		margin-top: 85px;
+		width: 225px;
+    float: left;
+    margin-left: 20px;
+		font-size: 30px;
+	}
+	.tcp-info-back {
+		margin-top: 75px;
+		width: 225px;
+    float: left;
+    margin-left: 20px;
+		font-size: 30px;
+	}
+	.top-margin {
+		margin-top: 20px;
+	}
+	.encapsulation {
+		.data {
+			display: inline-block;
+			border: 3px solid black;
+			float: right;
+			padding: 5px;
+		}
+		.app {
+			display: inline-block;
+			border: 3px solid $red;
+			float: right;
+			padding: 5px;
+		}
+		.tcp {
+			display: inline-block;
+			border: 3px solid $orange;
+			float: right;
+			padding: 5px;
+		}
+		.ip {
+			display: inline-block;
+			border: 3px solid $yellow;
+			float: right;
+			padding: 5px;
+		}
+		.ethernet {
+			display: inline-block;
+			border: 3px solid $green;
+			float: right;
+			padding: 5px;
+		}
+	}
+	.osi-model {
+		.app-layer {
+			border: 3px solid $red;
+		}
+		.pres-layer {
+			border: 3px solid $orange;
+		}
+		.sess-layer {
+			border: 3px solid $yellow;
+		}
+		.trans-layer {
+			border: 3px solid $green;
+		}
+		.net-layer {
+			border: 3px solid $lightblue;
+		}
+		.dl-layer {
+			border: 3px solid $darkblue;
+		}
+		.phys-layer {
+			border: 3px solid $purple;
+		}
+	}
+	.url {
+		.protocol {
+			border: 3px solid $red;
+			display: inline-block;
+			float: left;
+			height: 100px;
+			padding: 5px;
+		}
+		.hostname {
+			border: 3px solid $orange;
+			display: inline-block;
+			float: left;
+			height: 100px;
+			padding: 5px;
+		}
+		.port {
+			border: 3px solid $yellow;
+			display: inline-block;
+			float: left;
+			width: fit-content;
+			height: 100px;
+			padding: 5px;
+		}
+		.path {
+			border: 3px solid $green;
+			display: inline-block;
+			float: left;
+			height: 100px;
+			padding: 5px;
+		}
+		.query {
+			border: 3px solid $lightblue;
+			display: inline-block;
+			float: left;
+			height: 100px;
+			padding: 5px;
+		}
+		.frag {
+			border: 3px solid $darkblue;
+			display: inline-block;
+			float: left;
+			height: 100px;
+			padding: 5px;
+		}
+	}
+	.request {
+		.laptop, .arrow-right, .request-message, .server {
+			display: inline-block;
+			float: left;
+			width: 100px;
+		}
+		.arrow-right {
+			padding: 75px 0px;
+			color: black;
+		}
+		.laptop, .server {
+			margin: 0px;
+			padding: 53px 0px;
+		}
+		.request-message {
+			border: 3px solid $red;
+			padding: 5px 5px;
+			width: 450px;
+		}
+	}
+	.response {
+		display: block;
+		float: left;
+		.laptop, .arrow-left, .response-message, .server {
+			display: inline-block;
+			float: right;
+			width: 100px;
+		}
+		.arrow-left {
+			padding: 75px 0px;
+			color: black;
+		}
+		.laptop, .server {
+			margin: 0px;
+			padding: 53px 0px;
+		}
+		.response-message {
+			border: 3px solid $purple;
+			width: 450px;
+			padding: 5px 5px;
+		}
+	}
+	.nohttps {
+		p, img {
+			display: inline-block;
+		}
+		p {
+			padding: 120px 0px;
+			vertical-align: top;
+		}
+	}
+	.yeshttps {
+		p, img {
+			display: inline-block;
+		}
+		p {
+			vertical-align: bottom;
+		}
+	}
+	.tls-handshake {
+		.row {
+			display: inline-block;
+		}
+		img {
+			height: 75px;
+			margin: 0;
+		}
+		p {
+			margin: 5px 0;
+		}
+		.arrow-left, .arrow-right {
+			color: black;
+		}
+		.client-message {
+			img, .arrow-right, .message {
+				float: left;
+			}
+			.message {
+				width: 400px;
+				border: 2px solid $red;
+			}
+		}
+		.server-message {
+			img, .arrow-left, .message {
+				float: right;
+			}
+			.message {
+				width: 400px;
+				border: 2px solid $purple;
+			}
+		}
+	}
+	.certificate-img {
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+		height: 275px;
+	}
+	.client-ssh {
+		display: inline-block;
+		float: left;
+	}
+	.server-ssh {
+		display: inline-block;
+		float: right;
+	}
+	.ssh {
+		display: inline-block;
+		img.laptop, .arrow-right, .arrow-left, img.server, img.sshtunnel {
+			padding: 0;
+		}
+		.row {
+			margin-top: 10px;
+			display: inline-block;
+			float: initial;
+		}
+		.ssh-lastlaptop {
+			margin-top: 15px;
+		}
+	}
+	.tunnel {
+		float: left;
+		display: inline-block;
+		height: 95px;
+	}
+	.arrow-both {
+		display: inline-block;
+		float: left;
+		margin-top: 30px;
+		color: black;
+		margin-left: 75px;
+		margin-right: 75px;
+	}
+	.keyleft {
+		display: inline-block;
+		float: left;
+		width: 50%;
+	}
+	.keyright {
+		display: inline-block;
+		float: right;
+		width: 50%;
+	}
+	.sources {
+		.links{
+			float: left;
+			display: inline-block;
+			width: 49%;
+			height: 450px;
+		}
+		.smaller-link {
+			height: auto;
+		}
+		h3 {
+			margin: 0px;
+			float: left;
+			clear: both;
+		}
+		ul {
+			float: left;
+			margin-left: 25px;
+			clear: both;
+			width: 440px;
+			word-wrap: break-word;
+		}
+	}
+}

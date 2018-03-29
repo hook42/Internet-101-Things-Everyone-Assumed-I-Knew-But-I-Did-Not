@@ -1,0 +1,1318 @@
+<!doctype html>
+<html>
+	<img src="images/Hook42Logo.png" style="margin: 2rem; height: 7%; position: absolute;" />
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Internet 101</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/hook42.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section class="present" style="top: 226px; display: block;">
+					<h1 class="text__dark text__bold">
+						Internet 101: <br /> Things Everyone Assumed I Knew, But I Did Not </h1>
+					<h3 class="fragment">a.k.a. Lindsay's Computer Networking Class 101 Because Her Bachelor's is in History</h3>
+					<p class="fragment">Lindsay Gaudinier at Hook 42</p>
+				</section>
+
+				<section>
+					<h3>About me</h3>
+					<ul>
+						<li class="fragment">Front End Developer at Hook 42</li>
+						<li class="fragment">Swimming, cats, and the internet</li>
+					</ul>
+					<div>
+						<img src="images/dude.png" class="fragment" style="width: 250px;">
+					</div>
+
+				</section>
+
+				<section>
+					<h3>The Thought Behind the Talk</h3>
+					<ul>
+						<li class="fragment">There are a bunch of moving parts in order to get a website up and going.</li>
+						<li class="fragment">No one can understand everything, there just isn't enough time. Things move way too fast.</li>
+						<li class="fragment">I compiled a list of words and acryonyms that keep popping up, but were not integral to my work.</li>
+						<li class="fragment">I looked into some of these concepts, and lo and behold there was a pattern...</li>
+					</ul>
+				</section>
+
+				<section>
+					<img src="images/series-of-tubes.jpg" style="width: 500px;">
+				</section>
+
+				<section>
+					<h1>How the series of tubes that make up the internet actually work</h1>
+				</section>
+
+				<section>
+					<p>Quick note: sometimes words are mentioned before they are defined. Please have patience.
+					</p>
+					<img src="images/nobodygottime.gif" />
+				</section>
+
+
+				<section>
+					<h3>Early Networking</h3>
+					<ul class="smaller-font">
+						<li class="fragment">Some of the first computers networks started in research facilities. These computer networks were physically close and connected by coaxial cables.</li>
+						<li class="fragment">This network is called a LAN, a local area network.</li>
+						<li class="fragment">The most successful early LAN technology was Ethernet, introduced by Xerox in the early 1970s.</li>
+						<li class="fragment">Each computer has a unique MAC (media access control) address, and when a computer sends out a data that data is prefixed with the MAC address in a header.</li>
+						<li class="fragment">Computers listen for the their address for the header.</li>
+						<li class="fragment">When traffic increases, two computers may try to send information at the same time. This is known as a collision.</li>
+					</ul>
+				</section>
+				<section>
+					<h3>A Bigger Network</h3>
+					<ul class="smaller-font">
+						<li class="fragment">Things get trickier when more and more computers get added to the network.</li>
+						<li class="fragment">Solution: split the network up. You do this with a network switch.</li>
+					</ul>
+					<div class="fragment">
+						<img src="images/switches.gif" style="margin-bottom: 0px;" />
+						<br />
+						<a href="http://www.highteck.net/EN/Ethernet/Ethernet.html" class="smaller-font">Source: www.highteck.net</a>
+					</div>
+				</section>
+
+				<section>
+					<h3>Routing</h3>
+					<ul>
+						<li class="fragment">Now that we have split up the network, data may take multiple stops to arrive at its final destination.</li>
+						<li class="fragment"> Message switching: when the data takes multiple stops to get from point A to point B and doesn't take a single path.</li>
+						<li class="fragment">Upside: message switching is extremely flexible.
+							</li>
+							<li class="fragment">Downside: message switching can run into problems when the size of the message is big.
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Traceroute</h3>
+					<img src="images/traceroute.png" />
+				</section>
+
+				<section>
+					<h3>Packets</h3>
+					<ul class="smaller-font">
+						<li class="fragment">
+						Messages too big for message switching? <span class="fragment">Not a problem! Break them up into little pieces called packets.</span></li>
+						<li class="fragment"> Each packet contains a destination address, so routers know where to send the item.</li>
+						<li class="fragment">This destination format is defined by IP, and every computer has its own IP address.</li>
+						<li class="fragment">Since packets can take different routes to get to their destination IP address, packets can get out of order. TCP/IP handles this issue.</li>
+					</ul>
+					<img class="fragment" src="images/packets.gif" />
+				</section>
+
+				<section>
+					<h3>An Even Bigger Network</h3>
+					<ul class='smaller-font'>
+						<li class="fragment">
+							A client connects to a LAN. If you're using a laptop to connect to the internet, likely you're connecting to a Wireless (wifi) Router.
+						</li>
+						<li class="fragment">
+							The LAN connects to a WAN (wide area network) which is likely a router run by your Internet Service Provider (ISP). This may be a regional router for your neighborhood.
+						</li>
+						<li class="fragment">
+							That neighbor WAN connects to an even bigger WAN, and so forth, until you hit the NSP (network service provider) internet backbone. This backbone consists of big routers with high bandwidth computers.
+						</li>
+						<li class="fragment">
+							After moving through the internet backbone, you will reach the server that has the file. Data gets split into packets and makes it way back to the client.
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3> The Internet</h3>
+					<img src="images/internet-diagram.gif" style="width: 800px; margin-bottom: 0px;" />
+					<br />
+					<a href="http://www.cs.uni.edu/~east/prof/cs-institute/current/networks/model.html" class="smaller-font">Source: www.cs.uni.edu</a>
+				</section>
+
+				<section>
+					<img src="images/mind-blown.webp" style="width: 400px;" />
+				</section>
+
+				<section>
+					<img src="images/the-internet.gif" />
+				</section>
+
+				<section>
+					<h3>But not really</h3>
+					<img src="images/notevenclose.gif" />
+				</section>
+
+				<section>
+					<h3>First, we need to understand the Open Systems Interconnection (OSI) Model</h3>
+					<img src="images/drevil-airquotes.gif" class="fragment" />
+					<p class="smaller-font fragment">OSI model is a conceptual model that explains how network systems are supposed to communicate with each another, and breaks down this communication into abstract layers.</p>
+				</section>
+
+				<section>
+					<h3>OSI Model Layers</h3>
+					<div class="osi-model font-25">
+						<div class="app-layer fragment">
+							Application Layer <br />
+							<span class="font-20">User interacts with this layer (Chrome, Outlook, Firefox)</span>
+						</div>
+						<div class="pres-layer fragment">
+							Presentation Layer <br />
+								<span class="font-20">Where the Operating System lives</span>
+						</div>
+						<div class="sess-layer fragment">
+							Session Layer <br />
+							<span class="font-20">Deals with the communication, creates a session between the two computers</span>
+						</div>
+						<div class="trans-layer fragment">
+							Transport Layer <br />
+							<span class="font-20">Decides how much info is sent at one time, responsible for transportation of data back and forth</span>
+						</div>
+						<div class="net-layer fragment">
+							Network Layer <br />
+							<span class="font-20">Routers operate at this layer, includes IP address</span>
+						</div>
+						<div class="dl-layer fragment">
+							Data Link Layer <br />
+							<span class="font-20">Switches operate at this layer</span>
+						</div>
+						<div class="phys-layer fragment">
+							Physical Layer <br />
+							<span class="font-20">Includes the wires, cables and tubes</span>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h3>Internet Protocol Suite</h3>
+					<p class="fragment smaller-font">a.k.a. Transmission Control Protocol  (TCP) / Internet Protocol (IP) because these are the foundational protocols in the suite</p>
+					<p class="fragment smaller-font">a.k.a. Department of Defense (DoD) model</p>
+					<div class="fragment">
+						<p>
+							Protocol: "a defined set of rules and regulations that determine how data is transmitted in telecommunications and computer networking" <a href="https://en.wikipedia.org/wiki/Protocol"> - Wikipedia</a>
+						</p>
+					</div>
+				</section>
+
+				<section>
+					<h3>Internet Protocol Suite</h3>
+					<ul>
+						<li class="fragment">
+							The rules that define how data is transmitted across a network, and how data should be formatted so other systems on that network can understand it.
+						</li>
+						<li class="fragment">
+							Today, TCP/IP is the stardard protocol for communication across networks. Another common protocol is called User Datagram Protocol (UDP).
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>TCP/IP Model</h3>
+					<div class="tcp-model">
+						<div class="tcp-app">
+							Application Layer
+						</div>
+						<div class="tcp-transport">
+							 Transport Layer
+						</div>
+						<div class="tcp-internet">
+							Internet Layer
+						</div>
+						<div class="tcp-net">
+							Network Layer
+						</div>
+					</div>
+					<div class="arrow-box">
+					</div>
+					<div class="tcp-info">
+						Information passes in this order when it leaves one end node
+					</div>
+				</section>
+
+				<section>
+					<h3>TCP/IP Model</h3>
+					<div class="tcp-model">
+						<div class="tcp-app">
+							Application Layer
+						</div>
+						<div class="tcp-transport">
+							 Transport Layer
+						</div>
+						<div class="tcp-internet">
+							Internet Layer
+						</div>
+						<div class="tcp-net">
+							Network Layer
+						</div>
+					</div>
+					<div class="arrow-box-up">
+					</div>
+					<div class="tcp-info-back">
+						Information passes in this order when it enters one end node from another end node
+					</div>
+				</section>
+
+				<section>
+					<h3>Let's Break Down the Layers</h3>
+					<img src="images/layers.webp" style="width: 400px;"/>
+				</section>
+
+				<section>
+					<h3>Application Layer</h3>
+					<div class="tcp-model tcp-model-breakdown">
+						<div class="tcp-app fragment">
+							<span class="smaller-font">
+								<ul>
+									<li>Hypertext Transfer Protocol (HTTP)</li>
+									<li>File Transfer Protocol (FTP)</li>
+									<li>Simple Mail Transfer Protocol (SMTP)</li>
+									<li>Secure Shell (SSH)</li>
+									<li>Transport Layer Security / Secure Sockets Layer (TLS/SSL)</li>
+									<li>Domain Name Sytem (DNS)</li>
+								</ul>
+							</span>
+						</div>
+				</section>
+
+				<section>
+					<h3>Transport Layer</h3>
+					<div class="tcp-model tcp-model-breakdown">
+						<div class="tcp-transport fragment">
+							<span class="smaller-font">
+								<ul>
+									<li>Transmission Control Protocol (TCP)</li>
+									<li>User Datagram Protocol (UDP)</li>
+									<li>Reliabilty with acknowledgement that packets have been sent and received (ACK) and data checksum</li>
+									<li>Flow control</li>
+									<li>Multiplexing and ports</li>
+								</ul>
+							</span>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h3>Internet Layer</h3>
+					<div class="tcp-model tcp-model-breakdown">
+						<div class="tcp-internet fragment">
+							<span class="smaller-font">
+								<ul>
+									<li>Internet Protocol (IP)</li>
+									<li>Destination network address</li>
+									<li>Source network address (IP address)</li>
+									<li>Works with outgoing and incoming packets</li>
+								</ul>
+							</span>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h3>Network Layer</h3>
+					<div class="tcp-model tcp-model-breakdown">
+						<div class="tcp-net fragment">
+							<span class="smaller-font">
+								<ul>
+									<li>Also known as the the Link Layer</li>
+									<li>How data is physically sent</li>
+									<li>Ethernet, Digital Subscriber Line (DSL), Integrated Services Digital Network (ISDN), Fiber Distributed Data Interface (FDDI)</li>
+								</ul>
+							</span>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h3> Encapsulation</h3>
+					<p>Each layer adds a header and an (optional) trailer to the information from the preceding layer</p>
+					<div class="encapsulation smaller-font">
+						<div class="data fragment">Data</div>
+						<div class="app fragment">Application Header</div>
+						<div class="tcp fragment">TCP Header</div>
+						<div class="ip fragment">IP Header</div>
+						<div class="ethernet fragment">Ethernet Header</div>
+					</div>
+				</section>
+
+				<section>
+					<h3> Application Data Flow</h3>
+					<img src="images/application-data-flow.png" style="width: 800px;"/>
+				</section>
+
+				<section>
+					<h3>Why TCP/IP Won</h3>
+					<ul>
+						<li class="fragment">
+							End node verification - both endpoints (client, server) of any data transfer are responsible for making sure the transfer was successful
+						</li>
+						<li class="fragment">
+							Dynamic routing - end nodes can transfer data over multiple paths, and the network will choose the best path for each data transfer
+						</li>
+						<li class="fragment">
+							Large redundant networks (the internet) have tons of routes and lots of possible paths between the two end nodes
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>TCP/IP and the OSI Model</h3>
+					<img src="images/tcp-ip-osi.png" />
+				</section>
+
+				<section>
+					<h3>Let's Dig in More!!!</h3>
+					<img src="images/cat-dig.webp" style="width: 600px;"/>
+				</section>
+
+				<section>
+					<h3>Turns out, a lot of the concepts I wanted to learn live in the Application layer</h3>
+					<ul>
+						<li class="fragment">HTTP, HTTPS</li>
+						<li class="fragment">TLS / SSL</li>
+						<li class="fragment">SSH</li>
+						<li class="fragment">FTP, SFTP</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Hypertext Transfer Protocol (HTTP)</h3>
+					<ul>
+						<li class="fragment">Created by Tim Berners-Lee at CERN in 1989</li>
+						<li class=fragment> Protocol to transfer hypertext, which is just a text that links to other information by hyperlinks</li>
+						<li class="fragment">The HTTP client sends a request to a HTTP server, and the server returns a response message</li>
+						<li class="fragment">Known as a pull protocol, because the client pulls information from the server</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>HTTP - The URL</h3>
+					<p class="fragment">1. The user types in a Uniform Resource Locator (URL) into a browser</p>
+					<p class="fragment">https://www.hook42.com/blog?page=2</p>
+					<div class="url font-15">
+						<div class="fragment protocol">
+							https:// <br /> <br />
+							protocol/scheme
+						</div>
+						<div class="fragment hostname">
+							www.hook42.com <br /> <br />
+							hostname
+						</div>
+						<div class="fragment port">
+							:80 (HTTP) / :443 (HTTPS) <br /> <br />
+							port (not visible)
+						</div>
+						<div class="fragment path">
+							/blog <br /> <br />
+							path-and-file-name
+						</div>
+						<div class="fragment query">
+							?page=2 <br /> <br />
+							query (optional)
+						</div>
+						<div class="fragment frag">
+							#anchortag <br /> <br />
+							#fragment (optional)
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h3>HTTP - Request and Response</h3>
+					<div class="fragment request clearfix">
+						<p class="font-25"> 2. Client (laptop) sends an HTTP Request to the Server</p>
+						<img src="images/laptop.png" class="laptop"></src>
+						<div class="arrow-right fragment">
+							&#8594;
+						</div>
+						<div class="request-message font-25 fragment">
+							HTTP Request Message <br />
+							<span class="font-20">
+								A request line (ex. GET, POST, HEAD) <br />
+								Request header fields (ex. Accept-Language, Cookie, Location) <br />
+								An empty line <br />
+								(Optional) message body
+							</span>
+						</div>
+						<div class="arrow-right fragment">
+							&#8594;
+						</div>
+						<img src="images/server.png" class="server fragment"/>
+					</div>
+					<div class="fragment response clearfix">
+						<p class="font-25"> 3. Server sends an HTTP Response back to the Client</p>
+						<img src="images/server.png" class="server fragment"/>
+						<div class="arrow-left fragment">
+							&#8592;
+						</div>
+						<div class="response-message font-25 fragment">
+							HTTP Response Message <br />
+							<span class="font-20">
+								A status line with status code with reason message <br />
+								Response header fields <br />
+								An empty line <br />
+								(Optional) message body
+							</span>
+						</div>
+						<div class="arrow-left fragment">
+							&#8592;
+						</div>
+						<img src="images/laptop.png" class="laptop fragment"></src>
+					</div>
+				</section>
+
+				<section>
+					<h3>HTTP Request/Response Example</h3>
+					<img src="images/request-response.png" />
+				</section>
+
+				<section>
+					<h3>HTTP Status Codes</h3>
+					<table class="font-25">
+						<thead>
+							<tr>
+								<th>Response Number</th>
+								<th>What it means</th>
+								<th>Example</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1xx</td>
+								<td>Informational Response</td>
+								<td>103 Early Hints</td>
+							</tr>
+							<tr>
+								<td>2xx</td>
+								<td>Success</td>
+								<td>204 No Content</td>
+							</tr>
+							<tr>
+								<td>3xx</td>
+								<td>Redirection</td>
+								<td>301 Moved Permanently</td>
+							</tr>
+							<tr>
+								<td>4xx</td>
+								<td>Client Errors</td>
+								<td>404 Not Found</td>
+							</tr>
+							<tr>
+								<td>5xx</td>
+								<td>Server Errors</td>
+								<td>503 Service Unavailable</td>
+							</tr>
+						</tbody>
+					</thead>
+					</table>
+				</section>
+
+				<section>
+					<h3>But the Hook 42 website started with http<span style="text-decoration: underline;">s</span>:// not http://</h3>
+					<img src="images/sherlock.gif" style="width: 400px;"/>
+				</section>
+
+				<section>
+					<h3>HTTPS</h3>
+					<div class="fragment nohttps">
+						<p>The difference between this: </p>
+						<img src="images/no-https.png" />
+					</div>
+					<div class="fragment yeshttps">
+						<p> and this: </p>
+						<img src="images/yes-https.png" />
+					</div>
+				</section>
+
+				<section>
+					<h3>HTTPS</h3>
+					<p>a.k.a. HTTP over TLS or HTTP over SSL</p>
+					<p>The S stands for Secure</p>
+					<img src="images/letter-s.gif" />
+				</section>
+
+				<section>
+					<h3>HTTPS</h3>
+					<ul class="smaller-font">
+						<li class="fragment">
+							Similar to HTTP, except HTTPS tells the browser to add an encryption layer of SSL/TLS to protect data like urls, cookies and sensitive metadata
+						</li>
+						<li class="fragment">
+								Assures the website vistor that they are accessing the authentic website, by protecting the user from man-in-the-middle attacks, eavesdroppers, and ISPs/governments.
+						</li>
+						<li class="fragment">
+							In 2014, Google announced they would be incorporating HTTPS as a ranking signal
+						</li>
+						<li class="fragment">
+							Enable HTTPS on your site with a paid or free certificate
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Secure Sockets Layer (SSL) / Transport Layer Security  (TLS)</h3>
+					<ul class="font-25">
+						<li class="fragment">
+							Crytographic protocol started by Netscape in 1995 for e-commerce. Version 1.0 was never released, last SSL version was 3.0 in 1996. Replaced by TSL 1.0 in 1999. Current version is TLS 1.2.
+						</li>
+						<li class="fragment">
+							Doesn't perfectly fit into one layer of the OSI model layer or TCP/IP model. SSL/TSL is more of a mashup of the Application Layer and the Transport Layer.
+						</li>
+						<li class="fragment">
+							Certificate contains the hostname of the website the client connects to, and is signed by a trusted certificate authority.
+						</li>
+						<img src="images/certificate.png" class="certificate-img fragment"/>
+					</ul>
+				</section>
+
+				<section>
+					<h3> How SSL / TLS works - Part 1</h3>
+					<div class="tls-handshake">
+						<p class="font-25 fragment"> 1. Basic TLS Handshake</p>
+						<div class="row client-message">
+							<img src="images/laptop.png" class="laptop fragment"></src>
+							<div class="arrow-right fragment">
+								&#8594;
+							</div>
+							<div class="message fragment">
+								<p class="font-20">
+									Client sends a ClientHello to the server, includes list of supported protocols
+								</p>
+							</div>
+							<div class="arrow-right fragment">
+								&#8594;
+							</div>
+							<img src="images/server.png" class="server fragment"/>
+						</div>
+						<div class="row server-message">
+							<img src="images/server.png" class="laptop fragment"></src>
+							<div class="arrow-left fragment">
+								&#8592;
+							</div>
+							<div class="message fragment">
+								<p class="font-20">
+									Server responds with a ServerHello message, includes chosen protocol version
+								</p>
+							</div>
+							<div class="arrow-left fragment">
+								&#8592;
+							</div>
+							<img src="images/laptop.png" class="server fragment"/>
+						</div>
+						<div class="row server-message">
+							<img src="images/server.png" class="laptop fragment"></src>
+							<div class="arrow-left fragment">
+								&#8592;
+							</div>
+							<div class="message fragment">
+								<p class="font-20">
+									Server sends a Certificate messasge
+								</p>
+							</div>
+							<div class="arrow-left fragment">
+								&#8592;
+							</div>
+							<img src="images/laptop.png" class="server fragment"/>
+						</div>
+						<div class="row server-message">
+							<img src="images/server.png" class="laptop fragment"></src>
+							<div class="arrow-left fragment">
+								&#8592;
+							</div>
+							<div class="message fragment">
+								<p class="font-20">
+									Server sends a ServerHelloDone message
+								</p>
+							</div>
+							<div class="arrow-left fragment">
+								&#8592;
+							</div>
+							<img src="images/laptop.png" class="server fragment"/>
+						</div>
+						<div class="row client-message">
+							<img src="images/laptop.png" class="laptop fragment"></src>
+							<div class="arrow-right fragment">
+								&#8594;
+							</div>
+							<div class="message fragment">
+								<p class="font-20">
+									Client responds with a ClientKeyExchange message (contains either a <em>PreMaster secret</em>, public key, or nothing)
+								</p>
+							</div>
+							<div class="arrow-right fragment">
+								&#8594;
+							</div>
+							<img src="images/server.png" class="server fragment"/>
+						</div>
+						<div class="row fragment">
+							<p class="font-20">
+								Client and server now compute a "master secret"
+							</p>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h3> How SSL / TLS works - Part 2, 3 and 4</h3>
+					<div class="tls-handshake">
+						<p class="font-25 fragment"> 2. Client sends a ChangeCipherSpec records that says everything sent is now encrypted</p>
+						<div class="row client-message">
+							<img src="images/laptop.png" class="laptop fragment"></src>
+							<div class="arrow-right fragment">
+								&#8594;
+							</div>
+							<div class="message fragment">
+								<p class="font-20">
+									Client sends authenticated and encrypted Finished message to the Server
+								</p>
+							</div>
+							<div class="arrow-right fragment">
+								&#8594;
+							</div>
+							<img src="images/server.png" class="server fragment"/>
+						</div>
+						<div class="row fragment">
+							<p class="font-20">
+								Server attempts to decrypt the client's Finished message and verfy it. If the decrytion/verification fails, the handshake has failed, and connection should be dropped.
+							</p>
+						</div>
+						<p class="font-25 fragment"> 3. Server sends a ChangeCipherSpec records that says everything sent is now encrypted</p>
+						<div class="row server-message">
+							<img src="images/server.png" class="laptop fragment"></src>
+							<div class="arrow-left fragment">
+								&#8592;
+							</div>
+							<div class="message fragment">
+								<p class="font-20">
+									Server sends authenticated and encrypted Finished message to the Client
+								</p>
+							</div>
+							<div class="arrow-left fragment">
+								&#8592;
+							</div>
+							<img src="images/laptop.png" class="server fragment"/>
+						</div>
+						<div class="row fragment">
+							<p class="font-20">
+								Client attempts to decrypt the client's Finished message and verfy it. If the decrytion/verification fails, the handshake has failed, and connection should be dropped.
+							</p>
+						</div>
+						<p class="font-25 fragment"> 4. Application phase: now all the exchanges between the client and server are authenticated and encrypted</p>
+					</div>
+				</section>
+
+				<section>
+					<h3>Secure Shell Protocol (SSH)</h3>
+					<ul>
+						<li class="fragment">
+							A cryptographic protocol for securely operating network services over a non-secure network for privileged/admin users.
+						</li>
+						<li class="fragment">
+							Designed in 1995 as a replacement for TELNET, rlogin, FTP, and rsh protocols.
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>SSH Keys</h3>
+					<ul>
+						<li class="fragment">
+							SSH uses public key cyptography, a.k.a. asymmetrical crypotogprahy, that uses a public key and a private key.
+						</li>
+						<li class="fragment"> Public keys can be shared, while private keys are secret and known only to the owner.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Key Creation</h3>
+					<p>Creating a SSH Key</p>
+					<img src="images/ssh-keygen.png" style="width: 700px";/>
+				</section>
+
+				<section>
+					<h3>Public and Private Key</h3>
+					<div class="keyleft">
+						<p>Public Key</p>
+						<img src="images/publickey.png" style="width: 450px";/>
+					</div>
+					<div class="keyright">
+						<p>Private Key</p>
+						<img src="images/privatekey.png" />
+					</div>
+				</section>
+
+				<section>
+					<h3>Uploading Public Key</h3>
+					<img src="images/add-publickey-1.png"  class="fragment" style="width: 800px";/>
+					<img src="images/add-publickey-2.png" class="fragment" style="width: 800px";/>
+				</section>
+
+				<section>
+					<h3>SSH - How it Works</h3>
+					<div class="row">
+						<div class="client-ssh smaller-font">
+							SSH Client <br />
+							<em class="font-25">private key</em>
+						</div>
+						<div class="server-ssh smaller-font">
+							SSH Server <br />
+							<em class="font-25">public key</em>
+					</div>
+					<div class="ssh">
+						<div class="fragment request row">
+							<img src="images/laptop.png" class="laptop"></src>
+							<div class="arrow-right fragment">
+								&#8594;
+							</div>
+							<div class="request-message font-20 fragment">
+								Client makes contact with server and providers the ID of the key pair to prove its identity
+								<span class="font-20">
+								</span>
+							</div>
+							<div class="arrow-right fragment">
+								&#8594;
+							</div>
+							<img src="images/server.png" class="server fragment"/>
+						</div>
+						<div class="fragment response row">
+							<img src="images/server.png" class="server fragment"/>
+							<div class="arrow-left fragment">
+								&#8592;
+							</div>
+							<div class="response-message font-20 fragment">
+								<span class="font-20">
+									Server creates a challenge, which is encrypted by its public key, and sends this challenge back to the client
+								</span>
+							</div>
+							<div class="arrow-left fragment">
+								&#8592;
+							</div>
+							<img src="images/laptop.png" class="laptop fragment"></src>
+						</div>
+						<div class="fragment request row">
+							<img src="images/laptop.png" class="laptop"></src>
+							<div class="arrow-right fragment">
+								&#8594;
+							</div>
+							<div class="request-message font-20 fragment">
+								Client decrypts the challenge with the private key and sends back this decrypted original challenge to the server
+								<span class="font-20">
+								</span>
+							</div>
+							<div class="arrow-right fragment">
+								&#8594;
+							</div>
+							<img src="images/server.png" class="server fragment"/>
+						</div>
+						<div class="fragment request row">
+							<img src="images/laptop.png" class="laptop ssh-lastlaptop"></src>
+							<div class="arrow-both">
+								&#8646;
+							</div>
+							<img src="images/sshtunnel.png" class="tunnel" />
+							<div class="arrow-both">
+								&#8646;
+							</div>
+							<img src="images/server.png" class="server"/>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h3>File Transfer Protocol (FTP)</h3>
+					<ul>
+						<li class="fragment">
+							Protocol used for transfering files between a client and a server invented
+						</li>
+						<li class="fragment">
+							Invented in the 1970s, FTP predates HTTP. HTTP is considered better for quick transfers required for web pages.
+						</li>
+						<li class="fragment">
+							Not secure, since FTP does not encrypt the traffic between the client and server
+						</li>
+						<li class="fragment">
+							Can use the command line or FTP clients (FileZilla, Cyberduck)
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>How FTP Works</h3>
+					<ul class="smaller-font">
+						<li class="fragment">
+							Active mode: client listens for incoming data on a port. Client sends the the command port information to inform the server the port its using. The server initiates a data channel to the client from its port.
+						</li>
+						<li class="fragment">
+							Passive mode: client sends a command to the server and receives a server IP address and server port number. Client then uses data to open a connection from a client port to the server IP address and server port.
+						</li>
+						<li class="fragment">
+							Data Transfer: stream mode, block mode, compressed mode.
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>SSH File Transfer Protocol </h3>
+					<p class="fragment"> a.k.a. Secure File Transfer Protocol (SFTP) </p>
+					<p class="fragment">Note: FTP can also use SSL/TLS, which is known as FTPS. <u>NOT the same as SFTP.</u>
+					</p>
+					<p class="fragment"> Other ways to securely transfer files include Secure copy protocol (SCP) and rsync.</p>
+				</section>
+
+				<section>
+					<h3>SFTP Example with Pantheon</h3>
+					<img src="images/pantheon-sftp-info.png" class="fragment" />
+				</section>
+
+				<section>
+					<h3>SFTP Example with Pantheon</h3>
+					<img src="images/sftp.png" style="width: 600px;" class="fragment" />
+					<img src="images/sftp-pantheon.png" style="width: 600px;" class="fragment" />
+				</section>
+
+				<section>
+					<h3>Diving Deeper into the Transport Layer</h3>
+					<img src="images/catdive.gif" />
+				</section>
+
+				<section>
+					<h3>TCP's Sibling: User Datagram Protocol (UDP)</h3>
+					<ul>
+						<li class="fragment">
+							TCP and UDP are the most common protocols for the Transport layer.
+						</li>
+						<li class="fragment">
+							UDP is connectionless, skips error checking, and doesn't fix dropped packets. This makes it faster than TCP.
+						</li>
+						<li class="fragment">
+							Many applications use UDP, such as Domain Name System (DNS), Dynamic Host Configuration Protocol (DHCP) and Routing Information Protocol (RIP).
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>WTF is a Port?</h3>
+					<img src="images/wtf.webp" style="width: 400px";/>
+				</section>
+
+				<section>
+					<h3>Port is a Concept</h3>
+					<img src="images/drevil-airquotes.gif" />
+				</section>
+
+				<section>
+					<h3>Ports <span class="fragment">let you multitask</span></h3>
+					<ul>
+						<li class="fragment">Your computer only has one IP address and only one MAC address. So how exact do packets know what application to go to? <span class="fragment"> Ports!</span>
+						</li>
+						<li class="fragment">
+							"Ports are a logical construct that identifies a specific process or a type of network service" - <a href="https://en.wikipedia.org/wiki/Port_(computer_networking)">Wikipedia</a>
+						</li>
+						<li class="fragment">
+							In other words, ports are a concept of specific numbers that help guide packets to their final destination in the application layer.
+						</li>
+						<li class="fragment">
+							Multiplexing: multiple signals are combined into one signal to share resources.
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Ports</h3>
+					<img src="images/ports.png" style="width: 350px; margin-top: 0px;" />
+				</section>
+
+				<section>
+					<h3>Internet Socket</h3>
+					<ul class="smaller-font">
+						<li class="fragment">
+							Defined as the combination of an IP address and port number.
+						</li>
+						<li class="fragment">
+							If a socket has connected to another socket by TCP, then the socket also has a remote socket address.
+						</li>
+						<li class="fragment">
+							Types of sockets: <br />
+							<ol>
+								<li>
+									Datagram sockets (connectionless sockets using UDP)
+								</li>
+								<li>
+									Stream sockets (connection-oriented sockets using TCP)
+								</li>
+								<li>
+									Raw sockets (routers and network equipment)
+								</li>
+							</ol>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3 class="smaller-font">Internet Domain Socket States - <a href="http://manpages.ubuntu.com/manpages/xenial/en/man8/netstat.8.html">Netstat Manpage</a></h3>
+					<table class="font-16">
+						<thead>
+							<tr>
+								<th>State</th>
+								<th>Meaning</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>CLOSED</td>
+								<td>The socket is not in use.</td>
+							</tr>
+							<tr>
+								<td>LISTEN</td>
+								<td>The socket is listening for incoming connections.</td>
+							</tr>
+							<tr>
+								<td>SYN_SENT</td>
+								<td>The socket is actively trying to establish a connection to a remote peer.</td>
+							</tr>
+							<tr>
+								<td>SYN_RCVD</td>
+								<td>The socket has passively received a connection request from a remote peer.</td>
+							</tr>
+							<tr>
+								<td>ESTABLISHED</td>
+								<td> The socket has an established connection between a local application and a remote peer.</td>
+							</tr>
+							<tr>
+								<td>CLOSE_WAIT</td>
+								<td>The socket connection has been closed by the remote peer, and the system is waiting for the local application to close its half of the connection.</td>
+							</tr>
+							<tr>
+								<td>LAST_ACK</td>
+								<td>The socket connection has been closed by the remote peer, the local application has closed its half of the connection, and the system is waiting for the remote peer to acknowledge the close.
+								</td>
+							</tr>
+							<tr>
+								<td>FIN_WAIT_1</td>
+								<td>The socket connection has been closed by the local application, the remote peer has not yet acknowledged the close, and the system is waiting for it to close its half of the connection.</td>
+							</tr>
+							<tr>
+								<td>FIN_WAIT_2</td>
+								<td>The socket connection has been closed by the local application, the remote peer has acknowledged the close, and the system is waiting for it to close its half of the connection.
+								</td>
+							</tr>
+							<tr>
+								<td>CLOSING</td>
+								<td> The socket connection has been closed by the local application and the remote peer simultaneously, and the remote peer has not yet acknowledged the close attempt of the local application.</td>
+							</tr>
+							<tr>
+								<td>TIME_WAIT</td>
+								<td>The socket connection has been closed by the local application, the remote peer has closed its half of the connection, and the system is waiting to be sure that the remote peer received the last acknowledgement.</td>
+							</tr>
+						</tbody>
+					</thead>
+					</table>
+				</section>
+
+				<section>
+					<h3>Well Known Ports / System Ports (0 - 1023)</h3>
+					<p class="smaller-font">Widely used types of network services</p>
+					<table class="font-25">
+						<thead>
+							<tr>
+								<th>Port #</th>
+								<th>Description</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>TCP</td>
+							</tr>
+								<td>20</td>
+								<td>FTP data transfer</td>
+							</tr>
+							<tr>
+								<td>21</td>
+								<td>FTP control command</td>
+							</tr>
+							<tr>
+								<td>22</td>
+								<td>SSH, SFTP</td>
+							</tr>
+							<tr>
+								<td>23</td>
+								<td>Telnet</td>
+							</tr>
+							<tr>
+								<td>53</td>
+								<td>DNS</td>
+							</tr>
+							<tr>
+								<td>80</td>
+								<td>HTTP</td>
+							</tr>
+							<tr>
+								<td>118</td>
+								<td>Structured Query Language (SQL) Services</td>
+							</tr>
+							<tr>
+								<td>194</td>
+								<td>Internet Relay Chat (IRC)</td>
+							</tr>
+							<tr>
+								<td>443</td>
+								<td>HTTPS</td>
+							</tr>
+							<tr>
+								<td>666</td>
+								<td>Doom</td>
+							</tr>
+						</tbody>
+					</thead>
+					</table>
+				</section>
+
+				<section>
+					<h3>Registered Ports (1024 - 49151)</h3>
+					<p class="smaller-font">Assigned by the Internet Assigned Numbers Authority (IANA)</p>
+					<table class="font-25">
+						<thead>
+							<tr>
+								<th>Port #</th>
+								<th>Description</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>2375</td>
+								<td>Docker</td>
+							</tr>
+							<tr>
+								<td>3306</td>
+								<td>MySQL database system</td>
+							</tr>
+								<td>8888</td>
+								<td>MAMP web server</td>
+							</tr>
+							</tr>
+								<td>8889</td>
+								<td>MAMP MySQL database server</td>
+							</tr>
+							<tr>
+								<td>8983</td>
+								<td>Apache Solr</td>
+							</tr>
+							<tr>
+								<td>9418</td>
+								<td>git</td>
+							</tr>
+							<tr>
+								<td>11211</td>
+								<td>memcached</td>
+							</tr>
+							<tr>
+								<td>33434</td>
+								<td>traceroute</td>
+							</tr>
+							<tr>
+								<td>33848</td>
+								<td>Jenkins</td>
+							</tr>
+						</tbody>
+					</thead>
+					</table>
+				</section>
+
+				<section>
+					<h3>Port Status</h3>
+					<img src="images/port-in-use.png" style="width: 800px;"/>
+				</section>
+
+				<section>
+					<h3>Port Status</h3>
+					Check port status: nmap (Network Mapper), netstat (network statistics), and lsof (list open files)
+					<img src="images/port-status.png" />
+				</section>
+
+				<section>
+					<h2>All The Sources</h2>
+					<img src="images/read-all-the-things.png" />
+				</section>
+
+				<section class="sources">
+					<h2 class="font-25">Sources</h2>
+
+					<div class="links">
+						<h3 class="font-20">Application Layer</h3>
+						<ul class="font-14">
+							<li>
+								<a href="https://www.ntu.edu.sg/home/ehchua/programming/webprogramming/HTTP_Basics.html">https://www.ntu.edu.sg/home/ehchua/programming/webprogramming/HTTP_Basics.html</a>
+							</li>
+							<li>
+								<a href="https://code.tutsplus.com/tutorials/http-the-protocol-every-web-developer-must-know-part-1--net-31177">https://code.tutsplus.com/tutorials/http-the-protocol-every-web-developer-must-know-part-1--net-31177</a>
+							</li>
+							<li>
+								<a href="https://www.youtube.com/watch?v=eesqK59rhGA">https://www.youtube.com/watch?v=eesqK59rhGA</a>
+							</li>
+							<li>
+								<a href="http://www.garshol.priv.no/download/text/http-tut.html">http://www.garshol.priv.no/download/text/http-tut.html</a>
+							</li>
+							<li>
+								<a href="https://www.howtogeek.com/181767/htg-explains-what-is-https-and-why-should-i-care/">https://www.howtogeek.com/181767/htg-explains-what-is-https-and-why-should-i-care/</a>
+							</li>
+							<li>
+								<a href="https://https.cio.gov/">https://https.cio.gov/</a>
+							</li>
+							<li>
+								<a href="https://doepud.co.uk/blog/anatomy-of-a-url">https://doepud.co.uk/blog/anatomy-of-a-url</a>
+							</li>
+							<li>
+								<a href="https://www.instantssl.com/ssl.html">https://www.instantssl.com/ssl.html</a>
+							</li>
+							<li>
+								<a href="https://www.youtube.com/watch?v=iQsKdtjwtYI">https://www.youtube.com/watch?v=iQsKdtjwtYI</a>
+							</li>
+							<li>
+								<a href="https://www.youtube.com/watch?v=n_d1rCXNrx0">https://www.youtube.com/watch?v=n_d1rCXNrx0</a>
+							</li>
+							<li>
+								<a href="https://www.youtube.com/watch?v=cuR05y_2Gxc">https://www.youtube.com/watch?v=cuR05y_2Gxc</a>
+							</li>
+							<li>
+								<a href="https://www.youtube.com/watch?v=Rp3iZUvXWlM">https://www.youtube.com/watch?v=Rp3iZUvXWlM</a>
+							</li>
+							<li>
+								<a href="https://hpbn.co/transport-layer-security-tls/">https://hpbn.co/transport-layer-security-tls/</a>
+							</li>
+							<li>
+								<a href="https://letsencrypt.org/getting-started/">https://letsencrypt.org/getting-started/</a>
+							</li>
+							<li>
+								<a href="https://www.youtube.com/watch?v=zlv9dI-9g1U">https://www.youtube.com/watch?v=zlv9dI-9g1U</a>
+							</li>
+							<li>
+								<a href="https://www.youtube.com/watch?v=tCHldm7QTJo">https://www.youtube.com/watch?v=tCHldm7QTJo</a>
+							</li>
+							<li>
+								<a href="https://www.youtube.com/watch?v=z7jVOenqFYk">https://www.youtube.com/watch?v=z7jVOenqFYk</a>
+							</li>
+							<li>
+								<a href="https://www.cs.colostate.edu/helpdocs/ftp.html">https://www.cs.colostate.edu/helpdocs/ftp.html</a>
+							</li>
+							<li>
+								<a href="https://www.ssh.com/ssh/public-key-authentication">https://www.ssh.com/ssh/public-key-authentication</a>
+							</li>
+							<li>
+								<a href="https://kb.iu.edu/d/aews">https://kb.iu.edu/d/aews</a>
+							</li>
+						</ul>
+					</div>
+
+					<div class="links">
+						<h3 class="font-20">Transport Layer</h3>
+						<ul class="font-14">
+							<li>
+								<a href="https://www.webopedia.com/quick_ref/portnumbers.asp">https://www.webopedia.com/quick_ref/portnumbers.asp</a>
+							</li>
+							<li>
+								<a href="https://www.youtube.com/watch?v=zCAyinelie0">https://www.youtube.com/watch?v=zCAyinelie0</a>
+							</li>
+							<li>
+								<a href="https://www.youtube.com/watch?v=AXrFCbD4-fU">https://www.youtube.com/watch?v=AXrFCbD4-fU</a>
+							</li>
+							<li>
+								<a href="https://stackoverflow.com/questions/152457/what-is-the-difference-between-a-port-and-a-socket">https://stackoverflow.com/questions/152457/what-is-the-difference-between-a-port-and-a-socket</a>
+							</li>
+							<li>
+								<a href="https://www.cyberciti.biz/faq/what-process-has-open-linux-port/">https://www.cyberciti.biz/faq/what-process-has-open-linux-port/</a>
+							</li>
+							<li>
+								<a href="http://manpages.ubuntu.com/manpages/xenial/en/man8/netstat.8.html">http://manpages.ubuntu.com/manpages/xenial/en/man8/netstat.8.html</a>
+							</li>
+							<li>
+								<a href="ftp://lsof.itap.purdue.edu/pub/tools/unix/lsof/FAQ">ftp://lsof.itap.purdue.edu/pub/tools/unix/lsof/FAQ</a>
+							</li>
+						</ul>
+					</div>
+
+					<div class="links smaller-link">
+						<h3 class="font-20">TCP/IP</h3>
+						<ul class="font-14">
+							<li>
+								<a href="https://en.wikipedia.org/wiki/Transmission_Control_Protocol">https://en.wikipedia.org/wiki/Transmission_Control_Protocol</a>
+							</li>
+							<li>
+								<a href="https://en.wikipedia.org/wiki/Internet_protocol_suite">https://en.wikipedia.org/wiki/Internet_protocol_suite</a>
+							</li>
+							<li>
+								<a href="https://www.thegeekstuff.com/2011/11/tcp-ip-fundamentals/">https://www.thegeekstuff.com/2011/11/tcp-ip-fundamentals/</a>
+							</li>
+							<li>
+								<a href="https://technet.microsoft.com/en-us/library/cc958821.aspx">https://technet.microsoft.com/en-us/library/cc958821.aspx</a>
+							</li>
+							<li>
+								<a href="https://stackoverflow.com/questions/38519677/how-to-use-graphviz-draw-a-tcp-ip-data-encapsulation-diagram">https://stackoverflow.com/questions/38519677/how-to-use-graphviz-draw-a-tcp-ip-data-encapsulation-diagram</a>
+							</li>
+							<li>
+								<a href="https://www.technologyuk.net/telecommunications/internet/tcp-ip-stack.shtml">https://www.technologyuk.net/telecommunications/internet/tcp-ip-stack.shtml</a>
+							</li>
+						</ul>
+					</div>
+
+					<div class="links smaller-link">
+						<h3 class="font-20">Networking</h3>
+						<ul class="font-14">
+							<li>
+								<a href="http://www.cs.uni.edu/~east/prof/cs-institute/current/networks/model.html">http://www.cs.uni.edu/~east/prof/cs-institute/current/networks/model.html</a>
+							</li>
+							<li>
+								<a href="https://web.stanford.edu/class/msande91si/www-spr04/readings/week1/InternetWhitepaper.htm">https://web.stanford.edu/class/msande91si/www-spr04/readings/week1/InternetWhitepaper.htm</a>
+							</li>
+							<li>
+								<a href="http://www.highteck.net/EN/Ethernet/Ethernet.html">http://www.highteck.net/EN/Ethernet/Ethernet.html</a>
+							</li>
+						</ul>
+					</div>
+
+				</section>
+
+					<section>
+						<h3>Questions?</h3>
+						<img src="images/questions.gif" />
+					</section>
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+				slideNumber: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
