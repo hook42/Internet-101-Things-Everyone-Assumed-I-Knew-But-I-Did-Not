@@ -35,7 +35,7 @@
 				<section>
 					<h3>About me</h3>
 					<ul>
-						<li class="fragment">Front End Developer at Hook 42</li>
+						<li class="fragment">Developer at Hook 42</li>
 						<li class="fragment">Swimming, cats, and the internet</li>
 					</ul>
 					<div>
@@ -75,7 +75,7 @@
 						<li class="fragment">Some of the first computers networks started in research facilities. These computer networks were physically close and connected by coaxial cables.</li>
 						<li class="fragment">This network is called a LAN, a local area network.</li>
 						<li class="fragment">The most successful early LAN technology was Ethernet, introduced by Xerox in the early 1970s.</li>
-						<li class="fragment">Each computer has a unique MAC (media access control) address, and when a computer sends out a data that data is prefixed with the MAC address in a header.</li>
+						<li class="fragment">Each computer has a unique MAC (media access control) address, and when a computer sends out data, the data is prefixed with the MAC address in a header.</li>
 						<li class="fragment">Computers listen for the their address for the header.</li>
 						<li class="fragment">When traffic increases, two computers may try to send information at the same time. This is known as a collision.</li>
 					</ul>
@@ -97,7 +97,7 @@
 					<h3>Routing</h3>
 					<ul>
 						<li class="fragment">Now that we have split up the network, data may take multiple stops to arrive at its final destination.</li>
-						<li class="fragment"> Message switching: when the data takes multiple stops to get from point A to point B and doesn't take a single path.</li>
+						<li class="fragment"> Message switching: when the data takes multiple stops (hops) to get from its starting point to its end point.</li>
 						<li class="fragment">Upside: message switching is extremely flexible.
 							</li>
 							<li class="fragment">Downside: message switching can run into problems when the size of the message is big.
@@ -129,7 +129,7 @@
 							A client connects to a LAN. If you're using a laptop to connect to the internet, likely you're connecting to a Wireless (wifi) Router.
 						</li>
 						<li class="fragment">
-							The LAN connects to a WAN (wide area network) which is likely a router run by your Internet Service Provider (ISP). This may be a regional router for your neighborhood.
+							The LAN connects to a WAN (wide area network), which is likely a router run by your Internet Service Provider (ISP). This may be a regional router for your neighborhood.
 						</li>
 						<li class="fragment">
 							That neighbor WAN connects to an even bigger WAN, and so forth, until you hit the NSP (network service provider) internet backbone. This backbone consists of big routers with high bandwidth computers.
@@ -224,6 +224,11 @@
 				</section>
 
 				<section>
+					<h3>TCP/IP and the OSI Model</h3>
+					<img src="images/tcp-ip-osi.png" />
+				</section>
+
+				<section>
 					<h3>TCP/IP Model</h3>
 					<div class="tcp-model">
 						<div class="tcp-app">
@@ -285,7 +290,7 @@
 									<li>Simple Mail Transfer Protocol (SMTP)</li>
 									<li>Secure Shell (SSH)</li>
 									<li>Transport Layer Security / Secure Sockets Layer (TLS/SSL)</li>
-									<li>Domain Name Sytem (DNS)</li>
+									<li>Domain Name System (DNS)</li>
 								</ul>
 							</span>
 						</div>
@@ -300,7 +305,6 @@
 									<li>Transmission Control Protocol (TCP)</li>
 									<li>User Datagram Protocol (UDP)</li>
 									<li>Reliabilty with acknowledgement that packets have been sent and received (ACK) and data checksum</li>
-									<li>Flow control</li>
 									<li>Multiplexing and ports</li>
 								</ul>
 							</span>
@@ -372,11 +376,6 @@
 				</section>
 
 				<section>
-					<h3>TCP/IP and the OSI Model</h3>
-					<img src="images/tcp-ip-osi.png" />
-				</section>
-
-				<section>
 					<h3>Let's Dig in More!!!</h3>
 					<img src="images/cat-dig.webp" style="width: 600px;"/>
 				</section>
@@ -438,10 +437,10 @@
 					<div class="fragment request clearfix">
 						<p class="font-25"> 2. Client (laptop) sends an HTTP Request to the Server</p>
 						<img src="images/laptop.png" class="laptop"></src>
-						<div class="arrow-right fragment">
+						<div class="arrow-right">
 							&#8594;
 						</div>
-						<div class="request-message font-25 fragment">
+						<div class="request-message font-25">
 							HTTP Request Message <br />
 							<span class="font-20">
 								A request line (ex. GET, POST, HEAD) <br />
@@ -450,18 +449,18 @@
 								(Optional) message body
 							</span>
 						</div>
-						<div class="arrow-right fragment">
+						<div class="arrow-right">
 							&#8594;
 						</div>
-						<img src="images/server.png" class="server fragment"/>
+						<img src="images/server.png" class="server"/>
 					</div>
 					<div class="fragment response clearfix">
 						<p class="font-25"> 3. Server sends an HTTP Response back to the Client</p>
-						<img src="images/server.png" class="server fragment"/>
-						<div class="arrow-left fragment">
+						<img src="images/server.png" class="server"/>
+						<div class="arrow-left">
 							&#8592;
 						</div>
-						<div class="response-message font-25 fragment">
+						<div class="response-message font-25">
 							HTTP Response Message <br />
 							<span class="font-20">
 								A status line with status code with reason message <br />
@@ -470,10 +469,10 @@
 								(Optional) message body
 							</span>
 						</div>
-						<div class="arrow-left fragment">
+						<div class="arrow-left">
 							&#8592;
 						</div>
-						<img src="images/laptop.png" class="laptop fragment"></src>
+						<img src="images/laptop.png" class="laptop"></src>
 					</div>
 				</section>
 
@@ -549,7 +548,7 @@
 
 				<section>
 					<h3>HTTPS</h3>
-					<ul class="smaller-font">
+					<ul class=font-25>
 						<li class="fragment">
 							Similar to HTTP, except HTTPS tells the browser to add an encryption layer of SSL/TLS to protect data like urls, cookies and sensitive metadata
 						</li>
@@ -560,8 +559,9 @@
 							In 2014, Google announced they would be incorporating HTTPS as a ranking signal
 						</li>
 						<li class="fragment">
-							Enable HTTPS on your site with a paid or free certificate
+							Enable HTTPS on your site with a paid or free certificate, which contains the hostname of the website the client connects to, and is signed by a trusted certificate authority
 						</li>
+						<img src="images/certificate.png" class="certificate-img fragment"/>
 					</ul>
 				</section>
 
@@ -569,96 +569,92 @@
 					<h3>Secure Sockets Layer (SSL) / Transport Layer Security  (TLS)</h3>
 					<ul class="font-25">
 						<li class="fragment">
-							Crytographic protocol started by Netscape in 1995 for e-commerce. Version 1.0 was never released, last SSL version was 3.0 in 1996. Replaced by TSL 1.0 in 1999. Current version is TLS 1.2.
+							Crytographic protocol started by Netscape in 1995 for e-commerce. Version 1.0 was never released, last SSL version was 3.0 in 1996. Replaced by TLS 1.0 in 1999. Current version is TLS 1.2.
 						</li>
 						<li class="fragment">
 							Doesn't perfectly fit into one layer of the OSI model layer or TCP/IP model. SSL/TSL is more of a mashup of the Application Layer and the Transport Layer.
 						</li>
-						<li class="fragment">
-							Certificate contains the hostname of the website the client connects to, and is signed by a trusted certificate authority.
-						</li>
-						<img src="images/certificate.png" class="certificate-img fragment"/>
 					</ul>
 				</section>
 
 				<section>
 					<h3> How SSL / TLS works - Part 1</h3>
 					<div class="tls-handshake">
-						<p class="font-25 fragment"> 1. Basic TLS Handshake</p>
-						<div class="row client-message">
-							<img src="images/laptop.png" class="laptop fragment"></src>
-							<div class="arrow-right fragment">
+						<p class="font-25"> 1. Basic TLS Handshake</p>
+						<div class="row client-message fragment">
+							<img src="images/laptop.png" class="laptop"></src>
+							<div class="arrow-right">
 								&#8594;
 							</div>
-							<div class="message fragment">
+							<div class="message">
 								<p class="font-20">
 									Client sends a ClientHello to the server, includes list of supported protocols
 								</p>
 							</div>
-							<div class="arrow-right fragment">
+							<div class="arrow-right">
 								&#8594;
 							</div>
-							<img src="images/server.png" class="server fragment"/>
+							<img src="images/server.png" class="server"/>
 						</div>
-						<div class="row server-message">
-							<img src="images/server.png" class="laptop fragment"></src>
-							<div class="arrow-left fragment">
+						<div class="row server-message fragment">
+							<img src="images/server.png" class="laptop"></src>
+							<div class="arrow-left">
 								&#8592;
 							</div>
-							<div class="message fragment">
+							<div class="message">
 								<p class="font-20">
 									Server responds with a ServerHello message, includes chosen protocol version
 								</p>
 							</div>
-							<div class="arrow-left fragment">
+							<div class="arrow-left ">
 								&#8592;
 							</div>
-							<img src="images/laptop.png" class="server fragment"/>
+							<img src="images/laptop.png" class="server"/>
 						</div>
-						<div class="row server-message">
-							<img src="images/server.png" class="laptop fragment"></src>
-							<div class="arrow-left fragment">
+						<div class="row server-message fragment">
+							<img src="images/server.png" class="laptop"></src>
+							<div class="arrow-left">
 								&#8592;
 							</div>
-							<div class="message fragment">
+							<div class="message">
 								<p class="font-20">
 									Server sends a Certificate messasge
 								</p>
 							</div>
-							<div class="arrow-left fragment">
+							<div class="arrow-left">
 								&#8592;
 							</div>
-							<img src="images/laptop.png" class="server fragment"/>
+							<img src="images/laptop.png" class="server"/>
 						</div>
-						<div class="row server-message">
-							<img src="images/server.png" class="laptop fragment"></src>
-							<div class="arrow-left fragment">
+						<div class="row server-message fragment">
+							<img src="images/server.png" class="laptop"></src>
+							<div class="arrow-left">
 								&#8592;
 							</div>
-							<div class="message fragment">
+							<div class="message">
 								<p class="font-20">
 									Server sends a ServerHelloDone message
 								</p>
 							</div>
-							<div class="arrow-left fragment">
+							<div class="arrow-left">
 								&#8592;
 							</div>
-							<img src="images/laptop.png" class="server fragment"/>
+							<img src="images/laptop.png" class="server"/>
 						</div>
-						<div class="row client-message">
-							<img src="images/laptop.png" class="laptop fragment"></src>
-							<div class="arrow-right fragment">
+						<div class="row client-message fragment">
+							<img src="images/laptop.png" class="laptop"></src>
+							<div class="arrow-right">
 								&#8594;
 							</div>
-							<div class="message fragment">
+							<div class="message">
 								<p class="font-20">
 									Client responds with a ClientKeyExchange message (contains either a <em>PreMaster secret</em>, public key, or nothing)
 								</p>
 							</div>
-							<div class="arrow-right fragment">
+							<div class="arrow-right">
 								&#8594;
 							</div>
-							<img src="images/server.png" class="server fragment"/>
+							<img src="images/server.png" class="server"/>
 						</div>
 						<div class="row fragment">
 							<p class="font-20">
@@ -671,46 +667,46 @@
 				<section>
 					<h3> How SSL / TLS works - Part 2, 3 and 4</h3>
 					<div class="tls-handshake">
-						<p class="font-25 fragment"> 2. Client sends a ChangeCipherSpec records that says everything sent is now encrypted</p>
-						<div class="row client-message">
-							<img src="images/laptop.png" class="laptop fragment"></src>
-							<div class="arrow-right fragment">
+						<p class="font-25 fragment"> 2. Client sends a ChangeCipherSpec record that says everything sent is now encrypted</p>
+						<div class="row client-message fragment">
+							<img src="images/laptop.png" class="laptop"></src>
+							<div class="arrow-right">
 								&#8594;
 							</div>
-							<div class="message fragment">
+							<div class="message">
 								<p class="font-20">
 									Client sends authenticated and encrypted Finished message to the Server
 								</p>
 							</div>
-							<div class="arrow-right fragment">
+							<div class="arrow-right">
 								&#8594;
 							</div>
-							<img src="images/server.png" class="server fragment"/>
+							<img src="images/server.png" class="server"/>
 						</div>
 						<div class="row fragment">
 							<p class="font-20">
 								Server attempts to decrypt the client's Finished message and verfy it. If the decrytion/verification fails, the handshake has failed, and connection should be dropped.
 							</p>
 						</div>
-						<p class="font-25 fragment"> 3. Server sends a ChangeCipherSpec records that says everything sent is now encrypted</p>
-						<div class="row server-message">
-							<img src="images/server.png" class="laptop fragment"></src>
-							<div class="arrow-left fragment">
+						<p class="font-25 fragment"> 3. Server sends a ChangeCipherSpec record that says everything sent is now encrypted</p>
+						<div class="row server-message fragment">
+							<img src="images/server.png" class="laptop"></src>
+							<div class="arrow-left">
 								&#8592;
 							</div>
-							<div class="message fragment">
+							<div class="message">
 								<p class="font-20">
 									Server sends authenticated and encrypted Finished message to the Client
 								</p>
 							</div>
-							<div class="arrow-left fragment">
+							<div class="arrow-left">
 								&#8592;
 							</div>
-							<img src="images/laptop.png" class="server fragment"/>
+							<img src="images/laptop.png" class="server"/>
 						</div>
 						<div class="row fragment">
 							<p class="font-20">
-								Client attempts to decrypt the client's Finished message and verfy it. If the decrytion/verification fails, the handshake has failed, and connection should be dropped.
+								Client attempts to decrypt the server's Finished message and verfy it. If the decrytion/verification fails, the handshake has failed, and connection should be dropped.
 							</p>
 						</div>
 						<p class="font-25 fragment"> 4. Application phase: now all the exchanges between the client and server are authenticated and encrypted</p>
@@ -733,7 +729,7 @@
 					<h3>SSH Keys</h3>
 					<ul>
 						<li class="fragment">
-							SSH uses public key cyptography, a.k.a. asymmetrical crypotogprahy, that uses a public key and a private key.
+							SSH uses public key cyptography, a.k.a. asymmetrical cryptography, that uses a public key and a private key.
 						</li>
 						<li class="fragment"> Public keys can be shared, while private keys are secret and known only to the owner.</li>
 					</ul>
@@ -777,48 +773,48 @@
 					<div class="ssh">
 						<div class="fragment request row">
 							<img src="images/laptop.png" class="laptop"></src>
-							<div class="arrow-right fragment">
+							<div class="arrow-right">
 								&#8594;
 							</div>
-							<div class="request-message font-20 fragment">
+							<div class="request-message font-20">
 								Client makes contact with server and providers the ID of the key pair to prove its identity
 								<span class="font-20">
 								</span>
 							</div>
-							<div class="arrow-right fragment">
+							<div class="arrow-right">
 								&#8594;
 							</div>
-							<img src="images/server.png" class="server fragment"/>
+							<img src="images/server.png" class="server"/>
 						</div>
 						<div class="fragment response row">
-							<img src="images/server.png" class="server fragment"/>
-							<div class="arrow-left fragment">
+							<img src="images/server.png" class="server"/>
+							<div class="arrow-left">
 								&#8592;
 							</div>
-							<div class="response-message font-20 fragment">
+							<div class="response-message font-20">
 								<span class="font-20">
 									Server creates a challenge, which is encrypted by its public key, and sends this challenge back to the client
 								</span>
 							</div>
-							<div class="arrow-left fragment">
+							<div class="arrow-left">
 								&#8592;
 							</div>
-							<img src="images/laptop.png" class="laptop fragment"></src>
+							<img src="images/laptop.png" class="laptop"></src>
 						</div>
 						<div class="fragment request row">
 							<img src="images/laptop.png" class="laptop"></src>
-							<div class="arrow-right fragment">
+							<div class="arrow-right">
 								&#8594;
 							</div>
-							<div class="request-message font-20 fragment">
+							<div class="request-message font-20">
 								Client decrypts the challenge with the private key and sends back this decrypted original challenge to the server
 								<span class="font-20">
 								</span>
 							</div>
-							<div class="arrow-right fragment">
+							<div class="arrow-right">
 								&#8594;
 							</div>
-							<img src="images/server.png" class="server fragment"/>
+							<img src="images/server.png" class="server"/>
 						</div>
 						<div class="fragment request row">
 							<img src="images/laptop.png" class="laptop ssh-lastlaptop"></src>
@@ -936,93 +932,6 @@
 				<section>
 					<h3>Ports</h3>
 					<img src="images/ports.png" style="width: 350px; margin-top: 0px;" />
-				</section>
-
-				<section>
-					<h3>Internet Socket</h3>
-					<ul class="smaller-font">
-						<li class="fragment">
-							Defined as the combination of an IP address and port number.
-						</li>
-						<li class="fragment">
-							If a socket has connected to another socket by TCP, then the socket also has a remote socket address.
-						</li>
-						<li class="fragment">
-							Types of sockets: <br />
-							<ol>
-								<li>
-									Datagram sockets (connectionless sockets using UDP)
-								</li>
-								<li>
-									Stream sockets (connection-oriented sockets using TCP)
-								</li>
-								<li>
-									Raw sockets (routers and network equipment)
-								</li>
-							</ol>
-						</li>
-					</ul>
-				</section>
-
-				<section>
-					<h3 class="smaller-font">Internet Domain Socket States - <a href="http://manpages.ubuntu.com/manpages/xenial/en/man8/netstat.8.html">Netstat Manpage</a></h3>
-					<table class="font-16">
-						<thead>
-							<tr>
-								<th>State</th>
-								<th>Meaning</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>CLOSED</td>
-								<td>The socket is not in use.</td>
-							</tr>
-							<tr>
-								<td>LISTEN</td>
-								<td>The socket is listening for incoming connections.</td>
-							</tr>
-							<tr>
-								<td>SYN_SENT</td>
-								<td>The socket is actively trying to establish a connection to a remote peer.</td>
-							</tr>
-							<tr>
-								<td>SYN_RCVD</td>
-								<td>The socket has passively received a connection request from a remote peer.</td>
-							</tr>
-							<tr>
-								<td>ESTABLISHED</td>
-								<td> The socket has an established connection between a local application and a remote peer.</td>
-							</tr>
-							<tr>
-								<td>CLOSE_WAIT</td>
-								<td>The socket connection has been closed by the remote peer, and the system is waiting for the local application to close its half of the connection.</td>
-							</tr>
-							<tr>
-								<td>LAST_ACK</td>
-								<td>The socket connection has been closed by the remote peer, the local application has closed its half of the connection, and the system is waiting for the remote peer to acknowledge the close.
-								</td>
-							</tr>
-							<tr>
-								<td>FIN_WAIT_1</td>
-								<td>The socket connection has been closed by the local application, the remote peer has not yet acknowledged the close, and the system is waiting for it to close its half of the connection.</td>
-							</tr>
-							<tr>
-								<td>FIN_WAIT_2</td>
-								<td>The socket connection has been closed by the local application, the remote peer has acknowledged the close, and the system is waiting for it to close its half of the connection.
-								</td>
-							</tr>
-							<tr>
-								<td>CLOSING</td>
-								<td> The socket connection has been closed by the local application and the remote peer simultaneously, and the remote peer has not yet acknowledged the close attempt of the local application.</td>
-							</tr>
-							<tr>
-								<td>TIME_WAIT</td>
-								<td>The socket connection has been closed by the local application, the remote peer has closed its half of the connection, and the system is waiting to be sure that the remote peer received the last acknowledgement.</td>
-							</tr>
-						</tbody>
-					</thead>
-					</table>
 				</section>
 
 				<section>
@@ -1144,6 +1053,93 @@
 					<h3>Port Status</h3>
 					Check port status: nmap (Network Mapper), netstat (network statistics), and lsof (list open files)
 					<img src="images/port-status.png" />
+				</section>
+
+				<section>
+					<h3>Internet Socket</h3>
+					<ul class="smaller-font">
+						<li class="fragment">
+							Defined as the combination of an IP address and port number. The endpoint for sending or receiving data in a network.
+						</li>
+						<li class="fragment">
+							If a socket has connected to another socket by TCP, then the socket also has a remote socket address.
+						</li>
+						<li class="fragment">
+							Types of sockets: <br />
+							<ol>
+								<li>
+									Datagram sockets (connectionless sockets using UDP)
+								</li>
+								<li>
+									Stream sockets (connection-oriented sockets using TCP)
+								</li>
+								<li>
+									Raw sockets (routers and network equipment)
+								</li>
+							</ol>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3 class="smaller-font">Internet Domain Socket States - <a href="http://manpages.ubuntu.com/manpages/xenial/en/man8/netstat.8.html">Netstat Manpage</a></h3>
+					<table class="font-16">
+						<thead>
+							<tr>
+								<th>State</th>
+								<th>Meaning</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>CLOSED</td>
+								<td>The socket is not in use.</td>
+							</tr>
+							<tr>
+								<td>LISTEN</td>
+								<td>The socket is listening for incoming connections.</td>
+							</tr>
+							<tr>
+								<td>SYN_SENT</td>
+								<td>The socket is actively trying to establish a connection to a remote peer.</td>
+							</tr>
+							<tr>
+								<td>SYN_RCVD</td>
+								<td>The socket has passively received a connection request from a remote peer.</td>
+							</tr>
+							<tr>
+								<td>ESTABLISHED</td>
+								<td> The socket has an established connection between a local application and a remote peer.</td>
+							</tr>
+							<tr>
+								<td>CLOSE_WAIT</td>
+								<td>The socket connection has been closed by the remote peer, and the system is waiting for the local application to close its half of the connection.</td>
+							</tr>
+							<tr>
+								<td>LAST_ACK</td>
+								<td>The socket connection has been closed by the remote peer, the local application has closed its half of the connection, and the system is waiting for the remote peer to acknowledge the close.
+								</td>
+							</tr>
+							<tr>
+								<td>FIN_WAIT_1</td>
+								<td>The socket connection has been closed by the local application, the remote peer has not yet acknowledged the close, and the system is waiting for it to close its half of the connection.</td>
+							</tr>
+							<tr>
+								<td>FIN_WAIT_2</td>
+								<td>The socket connection has been closed by the local application, the remote peer has acknowledged the close, and the system is waiting for it to close its half of the connection.
+								</td>
+							</tr>
+							<tr>
+								<td>CLOSING</td>
+								<td> The socket connection has been closed by the local application and the remote peer simultaneously, and the remote peer has not yet acknowledged the close attempt of the local application.</td>
+							</tr>
+							<tr>
+								<td>TIME_WAIT</td>
+								<td>The socket connection has been closed by the local application, the remote peer has closed its half of the connection, and the system is waiting to be sure that the remote peer received the last acknowledgement.</td>
+							</tr>
+						</tbody>
+					</thead>
+					</table>
 				</section>
 
 				<section>
