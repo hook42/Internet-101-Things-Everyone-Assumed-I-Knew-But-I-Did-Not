@@ -372,16 +372,16 @@ body {
   display: inline-block;
   float: left; }
   .reveal .tcp-model .tcp-app {
-    border: 3px solid #cc3300;
+    border: 5px solid #cc3300;
     padding: 20px; }
   .reveal .tcp-model .tcp-transport {
-    border: 3px solid #ff6666;
+    border: 5px solid #ff6666;
     padding: 20px; }
   .reveal .tcp-model .tcp-internet {
-    border: 3px solid #F1C40F;
+    border: 5px solid #F1C40F;
     padding: 20px; }
   .reveal .tcp-model .tcp-net {
-    border: 3px solid #138D75;
+    border: 5px solid #138D75;
     padding: 20px; }
 
 .reveal .tcp-model-breakdown {
